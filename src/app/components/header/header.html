@@ -1,0 +1,15 @@
+<header class="main-nav">
+  <div class="container d-flex">
+    <a routerLink="/" class="logo">Family <span>ЛюКс</span></a>
+
+    <nav class="menu">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">ГОЛОВНА</a>
+      <a routerLink="/gallery" routerLinkActive="active">ГАЛЕРЕЯ</a>
+      <a routerLink="/contact" routerLinkActive="active">КОНТАКТИ</a>
+    </nav>
+
+    <div class="header-actions">
+      <a (click)="scrollToBooking()" class="btn-book">ЗАБРОНЮВАТИ</a>
+    </div>
+  </div>
+</header>

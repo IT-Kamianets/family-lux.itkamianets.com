@@ -1,0 +1,64 @@
+<section class="gallery-page" *ngIf="!lightboxOpen">
+  <div class="container">
+    <div class="gallery-header text-center">
+      <h1>Фотографії</h1>
+      <div class="divider"></div>
+      <p class="subtitle">Family Люкс</p>
+    </div>
+
+    <div class="category-section" *ngFor="let cat of categories">
+      <h3 class="cat-title">{{ cat }} ({{ getPhotosByCategory(cat).length }})</h3>
+      
+      <div class="photo-grid">
+        <div class="photo-card" 
+             *ngFor="let photo of getPhotosByCategory(cat)" 
+             (click)="openLightbox(photo)">
+          <img [src]="photo.url" [alt]="cat">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox-overlay" *ngIf="lightboxOpen">
+  
+  <button class="btn-close" (click)="closeLightbox()">
+    <i class="bi bi-x-lg"></i>
+  </button>
+
+  <div class="lightbox-container">
+    
+    <div class="lightbox-sidebar">
+      <div class="category-block" *ngFor="let cat of categories">
+        <h4 class="sidebar-cat-title">{{ cat }} ({{ getPhotosByCategory(cat).length }})</h4>
+        <div class="thumb-grid">
+          <div class="thumb-wrap" 
+               *ngFor="let photo of getPhotosByCategory(cat)"
+               (click)="selectPhoto(photo)"
+               [class.active]="currentPhoto === photo">
+            <img [src]="photo.url" [alt]="cat">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lightbox-main">
+      <div class="main-photo-wrapper">
+        <img [src]="currentPhoto.url" alt="Головне фото" class="main-image">
+        
+        <button class="nav-btn prev" (click)="prevPhoto($event)"><i class="bi bi-chevron-left"></i></button>
+        <button class="nav-btn next" (click)="nextPhoto($event)"><i class="bi bi-chevron-right"></i></button>
+
+        <div class="photo-counter">{{ currentPhotoIndex + 1 }} / {{ photos.length }}</div>
+
+        <div class="action-overlay">
+          <div class="author-info"><i class="bi bi-camera"></i> Family Люкс</div>
+          <a routerLink="/" (click)="closeLightbox()" class="btn-check-price">
+            Перевірити ціни <i class="bi bi-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

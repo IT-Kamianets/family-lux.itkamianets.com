@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --family-primary: #8c7e6a;    /* Затишний коричневий */
+  --family-accent: #d9a05b;     /* Тепле золото */
+  --family-bg: #fdfaf5;         /* М'який кремовий фон */
+  --family-dark: #2c2c2c;       /* Колір тексту */
+  --font-title: 'Playfair Display', serif;
+  --font-text: 'Montserrat', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-text);
+  background-color: var(--family-bg);
+  color: var(--family-dark);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-title);
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}

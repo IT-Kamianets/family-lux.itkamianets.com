@@ -1,0 +1,71 @@
+<section class="hero-section">
+  <div class="container hero-content text-center">
+    <span class="welcome-text">ЛАСКАВО ПРОСИМО ДО FAMILY ЛЮКС</span>
+    <h1 class="main-title">Простір щасливого <br> <span class="accent">сімейного часу</span></h1>
+    <p class="hero-desc">
+      Сучасні апартаменти в Кам'янці-Подільському, створені з думкою про комфорт батьків та радість дітей.
+    </p>
+    <div class="hero-buttons">
+      <button (click)="scrollToBooking()" class="btn-primary">Забронювати</button>
+      <a routerLink="/gallery" class="btn-outline">Дивитись фото</a>
+    </div>
+  </div>
+</section>
+
+<div id="booking-anchor"></div>
+
+<section class="booking-section">
+  <div class="container">
+    <div class="booking-card">
+      <div class="booking-grid">
+        
+        <div class="b-field">
+          <label><i class="bi bi-calendar-event"></i> Заїзд</label>
+          <input type="date" value="2026-02-18">
+        </div>
+
+        <div class="b-field">
+          <label><i class="bi bi-calendar-check"></i> Виїзд</label>
+          <input type="date" value="2026-02-19">
+        </div>
+
+        <div class="b-field">
+          <label><i class="bi bi-people"></i> Гості</label>
+          <select>
+            <option>1 дорослий</option>
+            <option selected>2 дорослих</option>
+            <option>Сім'я (3+)</option>
+          </select>
+        </div>
+
+        <div class="b-action">
+          <button class="btn-submit">Перевірити місця</button>
+        </div>
+
+      </div>
+    </div>
+    
+    <p class="booking-info">
+      Мінімальна сума бронювання — <strong>900 грн</strong> за добу.
+    </p>
+  </div>
+</section>
+
+<section class="features-section">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>01. Локація</h3>
+        <p>5 хвилин до старого міста, тихий район подалі від шуму доріг.</p>
+      </div>
+      <div class="feature-card">
+        <h3>02. Комфорт</h3>
+        <p>Ортопедичні матраци, sound-proof стіни та клімат-контроль.</p>
+      </div>
+      <div class="feature-card">
+        <h3>03. Турбота</h3>
+        <p>Безкоштовне дитяче ліжечко та стільчик для годування за запитом.</p>
+      </div>
+    </div>
+  </div>
+</section>
