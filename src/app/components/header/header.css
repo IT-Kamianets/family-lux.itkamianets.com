@@ -1,3 +1,6 @@
+/* =========================================
+   БАЗОВІ СТИЛІ (ДЕСКТОП)
+   ========================================= */
 .main-nav {
   position: fixed;
   top: 0; left: 0; width: 100%;
@@ -14,6 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .logo {
@@ -21,6 +25,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--family-dark);
+  text-decoration: none;
 }
 
 .logo span { color: var(--family-accent); }
@@ -32,6 +37,8 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--family-dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .menu a.active, .menu a:hover {
@@ -45,8 +52,67 @@
   font-size: 0.75rem;
   font-weight: 600;
   border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .btn-book:hover {
   background: var(--family-accent);
+}
+
+/* =========================================
+   МОБІЛЬНА ВЕРСІЯ (ЕКРАНИ МЕНШЕ 768px)
+   ========================================= */
+@media (max-width: 768px) {
+  /* 1. Робимо верхню шапку трохи тоншою */
+  .main-nav {
+    height: 60px;
+  }
+
+  /* 2. Ховаємо кнопку бронювання в шапці (щоб не ламала верстку) */
+  .header-actions {
+    display: none;
+  }
+
+  /* 3. Переносимо меню (посилання) ВНИЗ екрану */
+  .menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Світлий фон з розмиттям під стиль сайту */
+    background: rgba(253, 250, 245, 0.95); 
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(140, 126, 106, 0.15); /* Делікатна лінія зверху */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05); /* Дуже м'яка тінь вгору */
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 5px;
+    margin: 0;
+    z-index: 1001;
+
+    /* Захист від смужки навігації на нових iPhone */
+    padding-bottom: env(safe-area-inset-bottom, 15px);
+  }
+
+  /* 4. Зменшуємо і вирівнюємо текст посилань */
+  .menu a {
+    margin: 0;
+    font-size: 0.75rem;
+    padding: 5px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    /* Відступ зверху під шапку */
+    padding-top: 60px; 
+    /* Відступ знизу під мобільне меню */
+    padding-bottom: 70px; 
+  }
 }
