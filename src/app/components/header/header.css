@@ -6,7 +6,7 @@
   top: 0; left: 0; width: 100%;
   height: 80px;
   background: rgba(253, 250, 245, 0.95);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); /* На комп'ютері розмиття працює нормально */
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -62,57 +62,48 @@
 }
 
 /* =========================================
-   МОБІЛЬНА ВЕРСІЯ (ЕКРАНИ МЕНШЕ 768px)
+   МОБІЛЬНА ВЕРСІЯ (ЕКРАНИ МЕНШЕ 992px)
    ========================================= */
-@media (max-width: 768px) {
-  /* 1. Робимо верхню шапку трохи тоншою */
+@media (max-width: 992px) {
   .main-nav {
     height: 60px;
+    /* ВАЖЛИВО: Вимикаємо розмиття, щоб меню могло вийти за межі шапки! */
+    backdrop-filter: none; 
   }
 
-  /* 2. Ховаємо кнопку бронювання в шапці (щоб не ламала верстку) */
   .header-actions {
     display: none;
   }
 
-  /* 3. Переносимо меню (посилання) ВНИЗ екрану */
-  .menu {
+  /* Меню тепер внизу екрана */
+  .main-nav .menu {
     position: fixed;
     bottom: 0;
+    top: auto; 
     left: 0;
     width: 100%;
-    /* Світлий фон з розмиттям під стиль сайту */
-    background: rgba(253, 250, 245, 0.95); 
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(140, 126, 106, 0.15); /* Делікатна лінія зверху */
-    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05); /* Дуже м'яка тінь вгору */
+    
+    background: rgba(253, 250, 245, 0.98);
+    backdrop-filter: blur(10px); /* Додаємо розмиття самому нижньому меню */
+    border-top: 1px solid rgba(140, 126, 106, 0.2);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.08);
     
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
     padding: 15px 5px;
     margin: 0;
-    z-index: 1001;
+    z-index: 9999;
 
-    /* Захист від смужки навігації на нових iPhone */
     padding-bottom: env(safe-area-inset-bottom, 15px);
   }
 
-  /* 4. Зменшуємо і вирівнюємо текст посилань */
-  .menu a {
+  .main-nav .menu a {
     margin: 0;
     font-size: 0.75rem;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     letter-spacing: 0.5px;
-  }
-}
-
-@media (max-width: 768px) {
-  body {
-    /* Відступ зверху під шапку */
-    padding-top: 60px; 
-    /* Відступ знизу під мобільне меню */
-    padding-bottom: 70px; 
   }
 }
